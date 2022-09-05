@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "612956547474",
+    "project_id": "readingteacher-a504f",
+    "storage_bucket": "readingteacher-a504f.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:612956547474:android:b3509f1db8736eb445794b",
+        "android_client_info": {
+          "package_name": "com.rttgnu.readingteacherapp"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "612956547474-f4044ggi8r08vt4iq6k7np1oivg8q5rc.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBkbZQ_dbPDIiibtxzzQMBG-9KmFAAe4wI"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "612956547474-f4044ggi8r08vt4iq6k7np1oivg8q5rc.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
