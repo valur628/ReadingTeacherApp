@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">ReadingTeacherApp</string>
+    <string name="app_login">로그인</string>
 </resources>

@@ -14,6 +14,22 @@
       },
       "oauth_client": [
         {
+          "client_id": "612956547474-5cjiareglpngf2sed48dvdhro9h16qhd.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.rttgnu.readingteacherapp",
+            "certificate_hash": "6508797f19e79a98f8c440f3142d9d366b56eb4b"
+          }
+        },
+        {
+          "client_id": "612956547474-a5ruf4oc6ftqj4fl1i88tk3ffj125p3c.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.rttgnu.readingteacherapp",
+            "certificate_hash": "6605ac2d2553c927628c3ebe60e8177590337759"
+          }
+        },
+        {
           "client_id": "612956547474-f4044ggi8r08vt4iq6k7np1oivg8q5rc.apps.googleusercontent.com",
           "client_type": 3
         }
