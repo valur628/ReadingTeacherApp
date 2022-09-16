@@ -16,6 +16,9 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
+
+
+
         auth = FirebaseAuth.getInstance()
 
         val bt_logout: Button = findViewById(R.id.googleSignOutBtn)

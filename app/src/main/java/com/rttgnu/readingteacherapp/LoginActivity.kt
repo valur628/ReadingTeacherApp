@@ -12,6 +12,8 @@ import com.google.android.gms.auth.api.signin.GoogleSignInOptions
 import com.google.android.gms.common.api.ApiException
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.GoogleAuthProvider
+import com.rttgnu.readingteacherapp.databinding.ActivityLoginBinding
+import com.rttgnu.readingteacherapp.databinding.ActivityMainBinding
 
 
 class LoginActivity : AppCompatActivity() {
@@ -22,14 +24,19 @@ class LoginActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_login)
+
+        // 1. 바인딩 초기화 //
+        val binding = ActivityLoginBinding.inflate(layoutInflater)
+        // 2. 레이아웃 표시 //
+        setContentView(binding.root)
+
         auth = FirebaseAuth.getInstance()
         val gso = GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
             .requestIdToken(getString(R.string.default_web_client_id))
             .requestEmail()
             .build()
         googleSignInClient = GoogleSignIn.getClient(this,gso)
-        val googleSignInBtn: Button = findViewById(R.id.googleSignInBtn)
-        googleSignInBtn.setOnClickListener {
+        binding.googleSignInBtn.setOnClickListener {
             signIn()
         }
     }
