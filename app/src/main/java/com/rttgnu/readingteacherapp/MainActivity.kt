@@ -19,18 +19,24 @@ class MainActivity : AppCompatActivity() {
 
 
 
-        auth = FirebaseAuth.getInstance()
 
+
+
+
+/*
+        auth = FirebaseAuth.getInstance()
         val bt_logout: Button = findViewById(R.id.googleSignOutBtn)
         bt_logout.setOnClickListener {
             Firebase.auth.signOut();
             logoutSuccess()
         }
+*/
     }
-
+/*
     private fun logoutSuccess(){
         val intent = Intent(this,LoginActivity::class.java)
         startActivity(intent)
         finish()
     }
+*/
 }

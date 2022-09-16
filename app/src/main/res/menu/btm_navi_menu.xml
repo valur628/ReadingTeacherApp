@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/home_fragment"
+        android:enabled="true"
+        android:icon="@drawable/ic_baseline_home_24"
+        android:title="홈"/>
+    <item
+        android:id="@+id/sub_fragment"
+        android:enabled="true"
+        android:icon="@drawable/ic_baseline_book_24"
+        android:title="서브"/>
+    <item
+        android:id="@+id/library_fragment"
+        android:enabled="true"
+        android:icon="@drawable/ic_baseline_book_24"
+        android:title="도서관"/>
+    <item
+        android:id="@+id/_fragment"
+        android:enabled="true"
+        android:icon="@drawable/ic_baseline_brush_24"
+        android:title="투고장"/>
+</menu>
