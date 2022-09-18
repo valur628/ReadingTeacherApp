@@ -6,11 +6,21 @@
         <entry key="..\:/ReadingTeacherApp/app/src/main/res/drawable/home.xml" value="0.107" />
         <entry key="..\:/ReadingTeacherApp/app/src/main/res/drawable/ic_baseline_book_24.xml" value="0.107" />
         <entry key="..\:/ReadingTeacherApp/app/src/main/res/drawable/ic_baseline_brush_24.xml" value="0.107" />
+        <entry key="..\:/ReadingTeacherApp/app/src/main/res/drawable/ic_baseline_home_24.xml" value="0.3255" />
+        <entry key="..\:/ReadingTeacherApp/app/src/main/res/drawable/ic_launcher_background.xml" value="0.3255" />
+        <entry key="..\:/ReadingTeacherApp/app/src/main/res/layout/activity_bottom.xml" value="0.18645833333333334" />
         <entry key="..\:/ReadingTeacherApp/app/src/main/res/layout/activity_library.xml" value="0.2520833333333333" />
         <entry key="..\:/ReadingTeacherApp/app/src/main/res/layout/activity_login.xml" value="0.15625" />
         <entry key="..\:/ReadingTeacherApp/app/src/main/res/layout/activity_main.xml" value="0.1962962962962963" />
-        <entry key="..\:/ReadingTeacherApp/app/src/main/res/layout/activity_usersetting.xml" value="0.27291666666666664" />
+        <entry key="..\:/ReadingTeacherApp/app/src/main/res/layout/activity_main2.xml" value="0.3515625" />
+        <entry key="..\:/ReadingTeacherApp/app/src/main/res/layout/activity_usersetting.xml" value="0.1" />
         <entry key="..\:/ReadingTeacherApp/app/src/main/res/layout/btm_navi_menu.xml" value="0.12158054711246201" />
+        <entry key="..\:/ReadingTeacherApp/app/src/main/res/layout/fragment_dashboard.xml" value="0.18645833333333334" />
+        <entry key="..\:/ReadingTeacherApp/app/src/main/res/layout/fragment_home.xml" value="0.22" />
+        <entry key="..\:/ReadingTeacherApp/app/src/main/res/layout/fragment_library.xml" value="0.18" />
+        <entry key="..\:/ReadingTeacherApp/app/src/main/res/layout/fragment_notifications.xml" value="0.171875" />
+        <entry key="..\:/ReadingTeacherApp/app/src/main/res/layout/fragment_submit.xml" value="0.1" />
+        <entry key="..\:/ReadingTeacherApp/app/src/main/res/menu/bottom_nav_menu.xml" value="0.3515625" />
         <entry key="..\:/ReadingTeacherApp/app/src/main/res/menu/btm_navi_menu.xml" value="0.27291666666666664" />
         <entry key="..\:/Users/user/StudioProjects/ReadingTeacherApp/app/src/main/res/drawable-v24/ic_launcher_foreground.xml" value="0.1185" />
         <entry key="..\:/Users/user/StudioProjects/ReadingTeacherApp/app/src/main/res/drawable/ic_launcher_background.xml" value="0.1185" />
@@ -25,5 +35,12 @@
   </component>
   <component name="ProjectType">
     <option name="id" value="Android" />
+  </component>
+  <component name="VisualizationToolProject">
+    <option name="state">
+      <ProjectState>
+        <option name="scale" value="0.27291666666666664" />
+      </ProjectState>
+    </option>
   </component>
 </project>

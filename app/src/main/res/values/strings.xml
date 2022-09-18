@@ -1,4 +1,11 @@
 <resources>
     <string name="app_name">ReadingTeacherApp</string>
     <string name="app_login">로그인</string>
+    <string name="app_logout">로그아웃</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="home">Home</string>
+    <string name="library">Library</string>
+    <string name="submit">Submit</string>
+
+
 </resources>

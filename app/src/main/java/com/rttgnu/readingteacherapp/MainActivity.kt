@@ -1,42 +1,37 @@
 package com.rttgnu.readingteacherapp
 
-import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.widget.Button
-import com.google.firebase.auth.FirebaseAuth
-import com.google.firebase.auth.ktx.auth
-import com.google.firebase.ktx.Firebase
+import androidx.fragment.app.Fragment
+import com.rttgnu.readingteacherapp.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity() {
-
-    var auth: FirebaseAuth? = null
+    private lateinit var binding: ActivityMainBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+        binding = ActivityMainBinding.inflate(layoutInflater)
+        setContentView(binding.root)
+
+        changeFragment(HomeFragment())
 
 
-
-
-
-
-
-
-/*
-        auth = FirebaseAuth.getInstance()
-        val bt_logout: Button = findViewById(R.id.googleSignOutBtn)
-        bt_logout.setOnClickListener {
-            Firebase.auth.signOut();
-            logoutSuccess()
+        binding.bottomNavigationView.setOnItemSelectedListener { item ->
+            when (item.itemId) {
+                R.id.home_fragment -> changeFragment(HomeFragment())
+                R.id.library_fragment -> changeFragment(LibraryFragment())
+                R.id.submit_fragment -> changeFragment(SubmitFragment())
+            }
+            true
         }
-*/
+
     }
-/*
-    private fun logoutSuccess(){
-        val intent = Intent(this,LoginActivity::class.java)
-        startActivity(intent)
-        finish()
+    private fun changeFragment(fragment : Fragment) {
+        supportFragmentManager
+            .beginTransaction()
+            .replace(R.id.main_frame_layout, fragment)
+            .commit()
     }
-*/
+
 }
