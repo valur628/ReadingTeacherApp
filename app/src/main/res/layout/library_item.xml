@@ -42,12 +42,12 @@
             android:text="눈의 여왕"
             android:textColor="@color/black"
             android:textStyle="bold"
-            app:layout_constraintBottom_toTopOf="@id/book_writer"
+            app:layout_constraintBottom_toTopOf="@id/book_author"
             app:layout_constraintStart_toEndOf="@+id/id_book_cover"
             app:layout_constraintTop_toTopOf="@+id/id_book_cover" />
 
         <TextView
-            android:id="@+id/book_writer"
+            android:id="@+id/book_author"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="24dp"
@@ -62,7 +62,7 @@
             app:layout_constraintTop_toBottomOf="@+id/book_name" />
 
         <Button
-            android:id="@+id/button"
+            android:id="@+id/downLoad"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             app:layout_constraintBottom_toBottomOf="parent"
