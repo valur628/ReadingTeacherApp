@@ -5,13 +5,20 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
+import android.widget.Toast
 import androidx.recyclerview.widget.RecyclerView
 
 class LibraryAdapter(val LibraryList: ArrayList<LibraryModel>) : RecyclerView.Adapter<LibraryAdapter.CustomViewHolder>()
 {
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): LibraryAdapter.CustomViewHolder{
         val view= LayoutInflater.from(parent.context).inflate(R.layout.library_item,parent,false)
-        return CustomViewHolder(view)
+        return CustomViewHolder(view).apply {
+            itemView.setOnClickListener {
+                val curPos: Int = adapterPosition
+                val book : LibraryModel = LibraryList.get(curPos)
+                Toast.makeText(parent.context,"책이름: ${book.LibraryName} \n저자 : ${book.LibraryAuthor}",Toast.LENGTH_SHORT).show()
+            }
+        }
     }
 
     override fun getItemCount(): Int {

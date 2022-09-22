@@ -7,9 +7,10 @@
     tools:context=".LibraryFragment">
 
     <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/rv_library"
+        android:id="@+id/rviewlibrary"
         android:layout_width="409dp"
         android:layout_height="729dp"
+        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
