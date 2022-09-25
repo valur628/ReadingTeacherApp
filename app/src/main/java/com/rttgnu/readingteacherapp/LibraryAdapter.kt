@@ -25,6 +25,7 @@ class LibraryAdapter(val LibraryList: ArrayList<LibraryModel>) : RecyclerView.Ad
         return LibraryList.size
     }
 
+    //뷰홀더
     override fun onBindViewHolder(holder: LibraryAdapter.CustomViewHolder,position: Int) {
         holder.LibraryCover.setImageResource(LibraryList.get(position).LibraryCover)
         holder.LibraryName.text = LibraryList.get(position).LibraryName
