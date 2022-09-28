@@ -26,20 +26,11 @@ class LibraryFragment : Fragment() {
         val LibraryList : ArrayList<LibraryModel> = arrayListOf()
         val adapter = LibraryAdapter(LibraryList)
 
-//        LibraryList.add(LibraryModel(1,"눈의 여왕","한스 얀데르센",R.drawable.book,0,1,"눈의 여왕 설명"))
-//        LibraryList.add(LibraryModel(2,"견우와 직녀","작자미상",R.drawable.book,0,1,"견우와 직녀 설명"))
-//        LibraryList.add(LibraryModel(3,"브레멘 음악대","그림형제",R.drawable.book,0,1,"브레멘 음악대 설명"))
-//        LibraryList.add(LibraryModel(4,"삼국지 연의","나관중",R.drawable.book,0,1,"삼국지 연의 설명"))
-//        LibraryList.add(LibraryModel(5,"성냥팔이 소녀","한스 얀데르센",R.drawable.book,0,1,"성냥팔이 소녀 설명"))
-//        LibraryList.add(LibraryModel(6,"해와 달이 된 오누이","작자 미상",R.drawable.book,0,1,"해와 달이 된 오누이 설명"))
-//        LibraryList.add(LibraryModel(1,"눈의 여왕","한스 얀데르센",R.drawable.book,0,1,"눈의 여왕 설명"))
-//        LibraryList.add(LibraryModel(2,"견우와 직녀","작자미상",R.drawable.book,0,1,"견우와 직녀 설명"))
-//        LibraryList.add(LibraryModel(3,"브레멘 음악대","그림형제",R.drawable.book,0,1,"브레멘 음악대 설명"))
-//        LibraryList.add(LibraryModel(4,"삼국지 연의","나관중",R.drawable.book,0,1,"삼국지 연의 설명"))
-//        LibraryList.add(LibraryModel(5,"성냥팔이 소녀","한스 얀데르센",R.drawable.book,0,1,"성냥팔이 소녀 설명"))
-//        LibraryList.add(LibraryModel(6,"해와 달이 된 오누이","작자 미상",R.drawable.book,0,1,"해와 달이 된 오누이 설명"))
+        //데이터를 sqlite에 저장해서 계속해서 파이어베이스에서 읽지않게한다. 단 새로고침을 하면 리셋됨
 
-        //데이터 가져오기
+        //데이터를 리사이클러뷰에 띄워줄때는 sqlite에서 가져온다.
+
+        //데이터 가져오기 <-지금이부분은 새로고침눌렀을때 sqlite에 저장되도록 한다.
         db.collection("Library")   // 작업할 컬렉션
             //.whereEqualTo("libraryCategory", 1) //조건설정
             .get()      // 문서 가져오기
@@ -48,7 +39,7 @@ class LibraryFragment : Fragment() {
                 for (document in result) {  // 가져온 문서들은 result에 들어감
                     Log.d(TAG, "${document.id} => ${document.data}") //가져온데이터
                     //val item = LibraryModel(1,document["libraryName"] as String, document["libraryAuthor"] as String, R.drawable.book,0,1,"눈의 여왕 설명")
-                    LibraryList.add(LibraryModel(1,document["libraryName"] as String, document["libraryAuthor"] as String, R.drawable.book,0,1,"눈의 여왕 설명"))
+                    LibraryList.add(LibraryModel(document["libraryID"] as Int,document["libraryName"] as String, document["libraryAuthor"] as String, R.drawable.book,0,1,"눈의 여왕 설명"))
                 }
                adapter.notifyDataSetChanged()  // 리사이클러 뷰 갱신
             }
