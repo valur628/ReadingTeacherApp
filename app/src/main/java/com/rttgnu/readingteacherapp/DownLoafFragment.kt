@@ -5,6 +5,8 @@ import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.room.Room
+import com.google.android.gms.common.internal.RootTelemetryConfigManager
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment
 import com.google.firebase.firestore.FirebaseFirestore
 import com.rttgnu.readingteacherapp.databinding.FragmentDownloadBinding
@@ -18,7 +20,7 @@ class DownLoafFragment: BottomSheetDialogFragment() {
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
+    ): View {
         super.onCreateView(inflater, container, savedInstanceState)
         binding = FragmentDownloadBinding.inflate(inflater, container, false)
         return binding.root

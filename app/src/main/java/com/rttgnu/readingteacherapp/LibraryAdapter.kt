@@ -30,8 +30,6 @@ class LibraryAdapter(val LibraryList: ArrayList<LibraryModel>) : RecyclerView.Ad
         holder.LibraryCover.setImageResource(LibraryList.get(position).LibraryCover)
         holder.LibraryName.text = LibraryList.get(position).LibraryName
         holder.LibraryAuthor.text = LibraryList.get(position).LibraryAuthor
-
-
     }
 
     class CustomViewHolder(itemView: View): RecyclerView.ViewHolder(itemView) {
@@ -39,6 +37,5 @@ class LibraryAdapter(val LibraryList: ArrayList<LibraryModel>) : RecyclerView.Ad
         val LibraryName = itemView.findViewById<TextView>(R.id.book_name)       //책 이름
         val LibraryAuthor = itemView.findViewById<TextView>(R.id.book_author)   //책 저자
     }
-
 
 }
