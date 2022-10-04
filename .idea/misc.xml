@@ -3,8 +3,9 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
-        <entry key="..\:/pjcProject/androidWS/ReadingTeacherApp/app/src/main/res/layout/activity_main.xml" value="0.18" />
-        <entry key="..\:/pjcProject/androidWS/ReadingTeacherApp/app/src/main/res/layout/activity_movetest_button.xml" value="0.1" />
+        <entry key="..\:/Programing/androidWS/ReadingTeacherApp/app/src/main/res/layout/activity_main.xml" value="0.22826086956521738" />
+        <entry key="..\:/Programing/androidWS/ReadingTeacherApp/app/src/main/res/layout/activity_movetest_button.xml" value="0.25364583333333335" />
+        <entry key="..\:/Programing/androidWS/ReadingTeacherApp/app/src/main/res/layout/activity_speechtext.xml" value="0.1125" />
       </map>
     </option>
   </component>

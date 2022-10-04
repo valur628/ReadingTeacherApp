@@ -6,4 +6,47 @@
     android:layout_height="match_parent"
     tools:context=".movetestButton">
 
+    <TextView
+        android:id="@+id/statusText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_vertical"
+        android:layout_marginTop="16dp"
+        android:text="음성 녹음 시작"
+        android:textSize="22sp"
+        app:layout_constraintBottom_toTopOf="@+id/contentsTextView"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <EditText
+        android:id="@+id/contentsTextView"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginBottom="16dp"
+        android:layout_weight="1"
+        android:ems="10"
+        android:gravity="top"
+        android:hint="내용"
+        android:inputType="textMultiLine"
+        android:lines="8"
+        android:maxLines="100"
+        android:padding="5dp"
+        app:layout_constraintBottom_toTopOf="@+id/speechButton"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/statusText" />
+
+    <Button
+        android:id="@+id/speechButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="36dp"
+        android:text="start speech"
+        android:textAllCaps="false"
+        android:textSize="18dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/contentsTextView" />
 </androidx.constraintlayout.widget.ConstraintLayout>

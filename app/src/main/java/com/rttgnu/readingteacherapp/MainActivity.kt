@@ -11,16 +11,25 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
 
         val moveButton = findViewById<Button>(R.id.movetestButton)
+        val stButton = findViewById<Button>(R.id.speechtextButton)
+
 
         // 페이지 이동
-        fun moveToAnotherPage() {
-            val intent = Intent(this, movetestButton::class.java)
-            startActivity(intent)
+        fun moveToPageMT() {
+            val intent1 = Intent(this, movetestButton::class.java)
+            startActivity(intent1)
+        }
+        fun moveToPageST(){
+            val intent2 = Intent(this, SpeechTextActivity::class.java)
+            startActivity(intent2)
         }
   0
         // 함수호출
         moveButton.setOnClickListener {
-            moveToAnotherPage()
+            moveToPageMT()
+        }
+        stButton.setOnClickListener {
+            moveToPageST()
         }
     }
 }
