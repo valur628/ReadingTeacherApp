@@ -1,17 +1,9 @@
 package com.rttgnu.readingteacherapp;
 
-
-import android.Manifest;
-import android.annotation.SuppressLint;
-import android.content.pm.PackageManager;
 import android.media.AudioFormat;
 import android.media.AudioRecord;
 import android.media.MediaRecorder;
-import android.os.Build;
-import android.widget.Toast;
-
 import androidx.annotation.NonNull;
-import androidx.core.app.ActivityCompat;
 
 
 /**
@@ -32,11 +24,6 @@ public class VoiceRecorder {
     private static final int AMPLITUDE_THRESHOLD = 1500;
     private static final int SPEECH_TIMEOUT_MILLIS = 2000;
     private static final int MAX_SPEECH_LENGTH_MILLIS = 30 * 1000;
-
-    String[] permission_list = {
-            Manifest.permission.INTERNET,
-            Manifest.permission.RECORD_AUDIO,
-    };
 
     public static abstract class Callback {
 
@@ -143,13 +130,19 @@ public class VoiceRecorder {
         return 0;
     }
 
+    /**
+     * Creates a new {@link AudioRecord}.
+     *
+     * @return A newly created {@link AudioRecord}, or null if it cannot be created (missing
+     * permissions?).
+     */
     private AudioRecord createAudioRecord() {
         for (int sampleRate : SAMPLE_RATE_CANDIDATES) {
             final int sizeInBytes = AudioRecord.getMinBufferSize(sampleRate, CHANNEL, ENCODING);
             if (sizeInBytes == AudioRecord.ERROR_BAD_VALUE) {
                 continue;
             }
-            @SuppressLint("MissingPermission") final AudioRecord audioRecord = new AudioRecord(MediaRecorder.AudioSource.MIC,
+            final AudioRecord audioRecord = new AudioRecord(MediaRecorder.AudioSource.MIC,
                     sampleRate, CHANNEL, ENCODING, sizeInBytes);
             if (audioRecord.getState() == AudioRecord.STATE_INITIALIZED) {
                 mBuffer = new byte[sizeInBytes];

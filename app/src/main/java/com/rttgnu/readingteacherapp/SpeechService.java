@@ -485,4 +485,3 @@ public class SpeechService extends Service {
     }
 
 }
-

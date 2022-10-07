@@ -6,8 +6,8 @@
    See https://developer.android.com/about/versions/12/backup-restore
 -->
 <full-backup-content>
-    <!--
-   <include domain="sharedpref" path="."/>
-   <exclude domain="sharedpref" path="device.xml"/>
--->
+    <!-- We don't want the access token to be backed up -->
+    <exclude
+        domain="sharedpref"
+        path="AccessTokenLoader.xml"/>
 </full-backup-content>
