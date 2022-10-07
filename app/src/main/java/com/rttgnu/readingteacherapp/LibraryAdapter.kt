@@ -7,10 +7,19 @@ import android.widget.ImageView
 import android.widget.TextView
 import android.widget.Toast
 import androidx.recyclerview.widget.RecyclerView
+import com.google.android.material.bottomsheet.BottomSheetDialog
 
-class LibraryAdapter(val LibraryList: ArrayList<LibraryModel>) : RecyclerView.Adapter<LibraryAdapter.CustomViewHolder>()
+class LibraryAdapter : RecyclerView.Adapter<LibraryAdapter.CustomViewHolder>()
 {
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): LibraryAdapter.CustomViewHolder{
+    private var LibraryList = emptyList<LibraryModel>() //선언
+    //var bottomSheet: BottomSheet? = null
+    class CustomViewHolder(itemView: View): RecyclerView.ViewHolder(itemView) {
+        val LibraryCover = itemView.findViewById<ImageView>(R.id.id_book_cover) //책 커버
+        val LibraryName = itemView.findViewById<TextView>(R.id.book_name)       //책 이름
+        val LibraryAuthor = itemView.findViewById<TextView>(R.id.book_author)
+    }
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): CustomViewHolder{
+        //item과 리사이클러뷰를 연결
         val view= LayoutInflater.from(parent.context).inflate(R.layout.library_item,parent,false)
         return CustomViewHolder(view).apply {
             itemView.setOnClickListener {
@@ -22,20 +31,20 @@ class LibraryAdapter(val LibraryList: ArrayList<LibraryModel>) : RecyclerView.Ad
     }
 
     override fun getItemCount(): Int {
-        return LibraryList.size
+        return LibraryList.size//사이즈 리턴
     }
 
     //뷰홀더
-    override fun onBindViewHolder(holder: LibraryAdapter.CustomViewHolder,position: Int) {
+    override fun onBindViewHolder(holder: CustomViewHolder,position: Int) {
+        //item과 데이터를 연결
         holder.LibraryCover.setImageResource(LibraryList.get(position).LibraryCover)
         holder.LibraryName.text = LibraryList.get(position).LibraryName
         holder.LibraryAuthor.text = LibraryList.get(position).LibraryAuthor
     }
 
-    class CustomViewHolder(itemView: View): RecyclerView.ViewHolder(itemView) {
-        val LibraryCover = itemView.findViewById<ImageView>(R.id.id_book_cover) //책 커버
-        val LibraryName = itemView.findViewById<TextView>(R.id.book_name)       //책 이름
-        val LibraryAuthor = itemView.findViewById<TextView>(R.id.book_author)   //책 저자
+    fun setData(libraryModel :List<LibraryModel>){
+        //유저리스트가 변경 되었을때, 업데이트해줍니다.
+        this.LibraryList = libraryModel
+        notifyDataSetChanged()
     }
-
 }

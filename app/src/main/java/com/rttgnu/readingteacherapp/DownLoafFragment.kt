@@ -1,12 +1,9 @@
 package com.rttgnu.readingteacherapp
 
 import android.os.Bundle
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.room.Room
-import com.google.android.gms.common.internal.RootTelemetryConfigManager
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment
 import com.google.firebase.firestore.FirebaseFirestore
 import com.rttgnu.readingteacherapp.databinding.FragmentDownloadBinding
@@ -22,8 +19,7 @@ class DownLoafFragment: BottomSheetDialogFragment() {
         savedInstanceState: Bundle?
     ): View {
         super.onCreateView(inflater, container, savedInstanceState)
-        binding = FragmentDownloadBinding.inflate(inflater, container, false)
-        return binding.root
+        return inflater.inflate(R.layout.fragment_download, container, false)
     }
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)

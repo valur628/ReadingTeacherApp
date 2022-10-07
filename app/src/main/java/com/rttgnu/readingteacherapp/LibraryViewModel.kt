@@ -18,6 +18,12 @@ class LibraryViewModel(application: Application): AndroidViewModel(application) 
         readAllData = repository.getAllData
     }
 
+    fun allDeleteLibrary(){
+        viewModelScope.launch(Dispatchers.IO) {
+            repository.allDeleteLibrary()
+        }
+    }
+
     fun insertLibrary(libraryModel: LibraryModel){
         viewModelScope.launch(Dispatchers.IO) {
             repository.insertLibrary(libraryModel)
