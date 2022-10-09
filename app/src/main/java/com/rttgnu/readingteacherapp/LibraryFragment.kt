@@ -7,6 +7,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import com.google.firebase.firestore.FirebaseFirestore
@@ -31,12 +32,23 @@ class LibraryFragment : Fragment() {
         mBinding.rviewlibrary.setHasFixedSize(true)
         mBinding.rviewlibrary.adapter = adapter
         Log.d(TAG, "뷰모델 연결") //뷰모델 연결
+        var libraryList_ : List<LibraryModel> = listOf()
         mLibraryViewModel = ViewModelProvider(this).get(LibraryViewModel::class.java)
         mLibraryViewModel.readAllData.observe(viewLifecycleOwner, Observer { libraryList ->
             adapter.setData(libraryList)
+            libraryList_=libraryList
         })
 
-        ////파이어베이스에서 로컬로 데이터 이동
+        adapter.setItemClickListener(object : LibraryAdapter.OnItemClickListner{
+            override fun onClick(v: View, position: Int) {
+                val item = libraryList_[position]
+
+                Toast.makeText(v.context, "Activity\n${item.LibraryName}\n${item.LibraryAuthor}", Toast.LENGTH_SHORT).show()
+                //adapter.notifyDataSetChanged()
+
+            }
+        })
+        //파이어베이스에서 로컬로 데이터 이동
         mBinding.refreshButton.setOnClickListener{
             mLibraryViewModel.allDeleteLibrary()
             fbdb.collection("Library")   // 작업할 컬렉션

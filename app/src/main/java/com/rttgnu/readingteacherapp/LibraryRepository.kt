@@ -9,11 +9,6 @@ class LibraryRepository(private val libraryDao: LibraryDao) {
     suspend fun insertLibrary(libraryModel: LibraryModel){
         libraryDao.insertLibrary(libraryModel)
     }
-
-    //
-    suspend fun getRecord(id: Long): LiveData<LibraryModel?>
-        = libraryDao.getRecord(id)!!
-    //
     suspend fun allDeleteLibrary(){
         libraryDao.allDeleteLibrary()
     }

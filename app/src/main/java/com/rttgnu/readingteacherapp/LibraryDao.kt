@@ -12,10 +12,7 @@ interface LibraryDao {
 
     @Insert(onConflict = REPLACE)
     suspend fun insertLibrary(libraryModel: LibraryModel)
-//
-    @Query ("SELECT * FROM library_table WHERE LibraryID=(:id)")      //id를 통하여 특정 데이터 가져오는 쿼리
-    suspend fun getRecord(id : Long): LiveData<LibraryModel?>
-//
+
     @Query("DELETE FROM library_table")
     suspend fun allDeleteLibrary()
 }
