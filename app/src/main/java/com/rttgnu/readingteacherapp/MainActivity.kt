@@ -16,10 +16,11 @@ class MainActivity : AppCompatActivity() {
 
         changeFragment(HomeFragment())
 
-
+        val download = DownLoafFragment()
         binding.bottomNavigationView.setOnItemSelectedListener { item ->
             when (item.itemId) {
                 R.id.home_fragment -> changeFragment(HomeFragment())
+                R.id.sub_fragment ->download.show(supportFragmentManager,download.tag)
                 R.id.library_fragment -> changeFragment(LibraryFragment())
                 R.id.submit_fragment -> changeFragment(SubmitFragment())
             }

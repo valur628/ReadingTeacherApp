@@ -15,6 +15,8 @@ import io.grpc.ClientCall
 class LibraryAdapter : RecyclerView.Adapter<LibraryAdapter.CustomViewHolder>()
 {
     private var LibraryList = emptyList<LibraryModel>() //선언
+    private lateinit var itemClickListner: OnItemClickListner
+
     //var bottomSheet: BottomSheet? = null
     class CustomViewHolder(itemView: View): RecyclerView.ViewHolder(itemView) {
         val LibraryCover = itemView.findViewById<ImageView>(R.id.id_book_cover) //책 커버
@@ -27,11 +29,9 @@ class LibraryAdapter : RecyclerView.Adapter<LibraryAdapter.CustomViewHolder>()
         val view= LayoutInflater.from(parent.context).inflate(R.layout.library_item,parent,false)
         return CustomViewHolder(view)
     }
-
     override fun getItemCount(): Int {
         return LibraryList.size//사이즈 리턴
     }
-
     //뷰홀더
     override fun onBindViewHolder(holder: CustomViewHolder,position: Int) {
         val item = LibraryList[position]
@@ -44,12 +44,11 @@ class LibraryAdapter : RecyclerView.Adapter<LibraryAdapter.CustomViewHolder>()
             itemClickListner.onClick(it,position)
         }
     }
-    //click
+
+    //ClickListner
     interface OnItemClickListner {
         fun onClick(v:View, position: Int)
     }
-    private lateinit var itemClickListner: OnItemClickListner
-
     fun setItemClickListener(itemClickListner: OnItemClickListner){
         this.itemClickListner = itemClickListner
     }
