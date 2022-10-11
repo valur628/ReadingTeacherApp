@@ -17,6 +17,7 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.ReadingTeacherApp"
+        android:configChanges="orientation|screenSize|screenLayout|keyboardHidden"
         tools:ignore="GoogleAppIndexingWarning">
         <activity
             android:name=".movetestButton"

@@ -1,9 +1,12 @@
 package com.rttgnu.readingteacherapp;
 
+import static androidx.core.content.PackageManagerCompat.LOG_TAG;
+
 import android.Manifest;
 import android.content.ComponentName;
 import android.content.Intent;
 import android.content.ServiceConnection;
+import android.content.pm.ActivityInfo;
 import android.content.pm.PackageManager;
 import android.content.res.Resources;
 import android.os.Bundle;
@@ -16,12 +19,15 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 import androidx.appcompat.widget.Toolbar;
 import android.text.TextUtils;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
+
+import com.google.cloud.speech.v1.SpeechProto;
 
 import java.util.ArrayList;
 
@@ -68,10 +74,14 @@ public class SpeechTextActivity extends AppCompatActivity implements MessageDial
     private int mColorHearing;
     private int mColorNotHearing;
 
+    // Text data
+    private int textMatchRate;
+
     // View references
     private TextView mStatus;
     private TextView mText;
     private TextView mSave;
+    private TextView mRate;
     private ResultAdapter mAdapter;
     private RecyclerView mRecyclerView;
 
@@ -94,6 +104,7 @@ public class SpeechTextActivity extends AppCompatActivity implements MessageDial
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        //setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE);
         setContentView(R.layout.activity_speechtext);
 
         final Resources resources = getResources();
@@ -105,13 +116,16 @@ public class SpeechTextActivity extends AppCompatActivity implements MessageDial
         mStatus = (TextView) findViewById(R.id.status);
         mText = (TextView) findViewById(R.id.text_main);
         mSave = (TextView) findViewById(R.id.inSaveText);
+        mRate = (TextView) findViewById(R.id.rateText);
 
-        mRecyclerView = (RecyclerView) findViewById(R.id.recycler_view);
+        textMatchRate = TextMatching.lock_match("사는 동안에는 못 볼거에요 저기 어둠 속 저 달의 뒷 편처럼 나 죽어도 모르실테죠", "사는 동안에는 못 볼거 저기 어둠 속 저 달의 뒷 편처럼 나 죽어도 모르실테죠");  //멀티코어 프로세싱 박아야할듯
+        mRate.setText("일치율: " + textMatchRate + "%");
+        /*mRecyclerView = (RecyclerView) findViewById(R.id.recycler_view);
         mRecyclerView.setLayoutManager(new LinearLayoutManager(this));
         final ArrayList<String> results = savedInstanceState == null ? null :
                 savedInstanceState.getStringArrayList(STATE_RESULTS);
         mAdapter = new ResultAdapter(results);
-        mRecyclerView.setAdapter(mAdapter);
+        mRecyclerView.setAdapter(mAdapter);*/
     }
 
     @Override
@@ -136,15 +150,19 @@ public class SpeechTextActivity extends AppCompatActivity implements MessageDial
 
     @Override
     protected void onStop() {
-        // Stop listening to voice
-        stopVoiceRecorder();
+        try{
+            // Stop listening to voice
+            stopVoiceRecorder();
 
-        // Stop Cloud Speech API
-        mSpeechService.removeListener(mSpeechServiceListener);
-        unbindService(mServiceConnection);
-        mSpeechService = null;
+            // Stop Cloud Speech API
+            mSpeechService.removeListener(mSpeechServiceListener);
+            unbindService(mServiceConnection);
+            mSpeechService = null;
 
-        super.onStop();
+            super.onStop();
+        } catch(Exception e){
+            Log.d("onstop", String.valueOf(e));
+        }
     }
 
     @Override
@@ -237,6 +255,7 @@ public class SpeechTextActivity extends AppCompatActivity implements MessageDial
                                 if (isFinal) {
                                     mText.setText(null);
                                     mSave.setText(text);
+                                    mRate.setText("일치율: " + textMatchRate + "%");
                                     //mAdapter.addResult(text);
                                     mRecyclerView.smoothScrollToPosition(0);
                                 } else {
